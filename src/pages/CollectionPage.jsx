@@ -22,8 +22,12 @@ const handleClickOutside = (e)=>{
 useEffect(()=>{
     document.addEventListener("mousedown",handleClickOutside)
 
-    document.removeEventListener("mousedown",handleClickOutside)
-})
+    //clean event listner for click
+    return ()=>{
+      document.removeEventListener("mousedown",handleClickOutside)
+
+    }
+},[])
 useEffect(()=>{
     setTimeout(()=>{
      const fetchProducts=[
@@ -78,7 +82,7 @@ useEffect(()=>{
       ]
       setproducts(fetchProducts)
     },1000)
-},[])
+},[]);
   return (
     <div className='flex flex-col lg:flex-row'>
         <button onClick={toggleSiderbar} className='lg:hidden border p-2 flex justify-center items-center'>
