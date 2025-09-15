@@ -4,9 +4,12 @@ import login from '../assets/login.webp'
 import { registerUser } from '../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
 const Register = () => {
-  
+
     const dispatch = useDispatch();
   const [email,setEmail]=useState('');
+
+
+  
   const [password,setPassword]=useState('');
   const [name,setName]=useState('');
   const handleSubmit =(e)=>{
